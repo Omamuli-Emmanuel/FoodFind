@@ -1,0 +1,69 @@
+body {
+    font-family: 'Josefin Sans', cursive;
+  }
+
+.dropdown-menu > li > a:hover {
+    background-image: none;
+    background-color: #6a27cf;
+    color: whitesmoke;
+}
+.BsNavbar{
+    background-color: #6a27cf;
+}
+.BsNavbarHome{
+    background-color: transparent;
+}
+
+.navbar-nav li {
+    color: whitesmoke;
+}
+
+.sidebar {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    min-height: 100vh !important;
+    z-index: 100;
+    padding: 48px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar :hover{
+    background-color: whitesmoke;
+    color: gray;
+}
+
+.sidebar :hover :active{
+    color: gray;
+}
+
+.sidebar :link {
+    color: antiquewhite;
+
+}
+
+.sidebar :active {
+    background-color: whitesmoke;
+    color: black;
+}
+
+#sidebar-wrapper{
+    min-height: 100vh !important;
+    width: 17vw;
+    margin-left: -1rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+/* #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+} */
