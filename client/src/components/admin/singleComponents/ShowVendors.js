@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Table from "react-bootstrap/Table"
+import Table from "react-bootstrap/esm/Table"
 import axios from "axios"
-import Modal from "react-bootstrap/Modal"
-import Button from "react-bootstrap/Button"
-import Form from "react-bootstrap/Form"
+import Modal from "react-bootstrap/esm/Modal"
+import Button from "react-bootstrap/esm/Button"
+import Form from "react-bootstrap/esm/Form"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faSquarePen, faTrash, faRotate } from "@fortawesome/free-solid-svg-icons";
 

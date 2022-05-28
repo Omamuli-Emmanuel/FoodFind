@@ -5,11 +5,9 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const cors = require('cors')
-const admin = require('./routes/api/users');
-const vendor = require('./routes/api/vendors');
-
-
-
+const admin = require('./client/routes/api/users');
+const vendor = require('./client/routes/api/vendors');
+const path = require('path');
 
 // const vendorUsers = require('./vendors/routes/api/users');
 // const endUsers = require('./endUsers/routes/api/users');
@@ -28,9 +26,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //database configuration
-const db = require('./config/keys').mongoURI;
-
-
+const db = require('./client/config/keyse').mongoURI;
 
 //connect to mongodb
 mongoose.connect(db, {useNewUrlParser : true})
@@ -40,8 +36,7 @@ mongoose.connect(db, {useNewUrlParser : true})
 //passport middleware
 app.use(passport.initialize());
 
-//passport config
-require('./config/passport')(passport);
+app.use(express.static(path.join(__dirname, './client/build')));
 
 //routes
 app.use('/api/users', admin);
@@ -49,7 +44,16 @@ app.use('/api/vendors', vendor);
 // app.use('/api/users', vendorUsers);
 // app.use('/api/users', endUsers);
 
+
+app.get('*', async(req, res) => {
+    res.sendFile(path.join(__dirname, './client/build', 'index.html'));
+});
+
+//passport config
+require('./client/config/passporte')(passport);
+
+
 //determine the port to run server on 
-const port = process.env.PORT || 8000 
+// const port = process.env.PORT || 8000 
 //listen on port for db data 
-app.listen(port, () => console.log(`Sever running on port ${port}!`))
+app.listen(8000, () => console.log('Sever running on and running'))

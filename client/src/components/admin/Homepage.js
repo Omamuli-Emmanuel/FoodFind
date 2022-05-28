@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"
-import Container from "react-bootstrap/Container"
-import Carousel from "react-bootstrap/Carousel"
-import Row from "react-bootstrap/Row"
+import Container from "react-bootstrap/esm/Container"
+import Carousel from "react-bootstrap/esm/Carousel"
+import Row from "react-bootstrap/esm/Row"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faSquarePhone} from "@fortawesome/free-solid-svg-icons"
-import  Button from "react-bootstrap/Button";
+import  Button from "react-bootstrap/esm/Button";
 
 
 
@@ -37,7 +37,7 @@ const Homepage = () => {
     const multiplier = adminCut / 100;
 
       //state to pull menu
-    const [showMenu, setShowMenu] = useState([]);
+    const [showMenu, setShowMenu] = useState([])
 
      //set state to get categories
      const [cats, setCat] = useState([])
@@ -46,11 +46,11 @@ const Homepage = () => {
           axios.get('api/users/pullCategories').then(
                res => {
                   setCat(res.data)
-                  console.log(res.data)
                }
-           )
+           ).catch(err => {
+                console.log(err)
+           })
      }
-
 
     //get menu items from db
     const displayMenu = async() => {
@@ -72,7 +72,7 @@ const Homepage = () => {
                     <div className="ml-5">
                               <img
                                    className="d-block"
-                                   src={require('../../../src/images/logo2.jpeg')}
+                                   src={require('../../images/logo2.jpeg')}
                                    style={{width : '80px', height : '50px'}}
                               />
                     </div>
@@ -86,7 +86,7 @@ const Homepage = () => {
                               
                               <img
                                    className="d-block w-100 rounded shadow"
-                                   src={require('../../../src/images/foodgirl.jpg')}
+                                   src={require('../../images/foodgirl.jpg')}
                                    alt="First slide"
                               />
                          </div>
@@ -104,16 +104,16 @@ const Homepage = () => {
                               <div className="">
                                    <h3>Get in touch</h3>
                                    <div>
-                                        <img src={require('../../../src/images/instagram.png')} /> food.find1
+                                        <img src={require('../../images/instagram.png')} /> food.find1
                                    </div>
                                    <div>
-                                        <img src={require('../../../src/images/mail.png')} /> Food.find@yahoo.com 
+                                        <img src={require('../../images/mail.png')} style={{height : "30px"}}/> Food.find@yahoo.com 
                                    </div>
 
                                    <div>
                                         <a href="https://wa.me/+447440035229">
                                              <Button className="bg-white mt-2 text-success" variant="outline-success">
-                                                  <img src={require('../../../src/images/whatsapp.png')} /> Quick chat
+                                                  <img src={require('../../images/whatsapp.png')} /> Quick chat
                                              </Button>
                                         </a>
                                    </div>
@@ -130,7 +130,7 @@ const Homepage = () => {
                               <Carousel.Item>
                               <img
                                    className="d-block w-100 rounded shadow"
-                                   src={require('../../../src/images/slider.png')}
+                                   src={require('../../images/slider.png')}
                                    alt="First slide"
                                    style={{height : "150px"}}
                               />
@@ -142,7 +142,7 @@ const Homepage = () => {
                               <Carousel.Item>
                               <img
                                    className="d-block w-100 rounded shadow"
-                                   src={require('../../../src/images/gegi.jpg')}
+                                   src={require('../../images/gegi.jpg')}
                                    alt="First slide"
                                    style={{height : "150px"}}
                               />
@@ -155,7 +155,7 @@ const Homepage = () => {
                               <Carousel.Item>
                               <img
                                    className="d-block w-100 rounded shadow"
-                                   src={require('../../../src/images/condi.jpg')}
+                                   src={require('../../images/condi.jpg')}
                                    alt="First slide"
                                    style={{height : "150px"}}
                               />

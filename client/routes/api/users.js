@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const keys = require('../../config/keys');
+const keys = require('../../config/keyse');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -14,9 +14,9 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
 //load user model where we have our user schema
-const Admin = require('../../models/User');
-const AdminPercentage = require('../../models/AdminPercentage');
-const Category = require('../../models/Category');
+const Admin = require('../../models/Users');
+const AdminPercentage = require('../../models/AdminPercentages');
+const Category = require('../../models/Categorys');
 
 //Create Storage Engine for categories
 const catImages = multer.diskStorage({
@@ -66,9 +66,6 @@ router.get('/authStatus', verifyJwt, (req,res) => {
     res.send("Authenticated")
 })
 
-router.get('/', (req, res) => {
-    res.send("getting this right");
-})
 
 //register admin
 router.post('/adminRegister', (req, res) => {

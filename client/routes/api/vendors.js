@@ -6,17 +6,17 @@ const path = require('path');
 const fs = require('fs');
 const sharp = require('sharp');
 const bcrypt = require('bcryptjs');
-const keys = require('../../config/keys');
+const keys = require('../../config/keyse');
 
 
 //load user model where we have our user schema
-const Vendors = require('../../models/Vendor');
-const AdminPercent = require('../../models/AdminPercentage')
-const MenuItems = require('../../models/MenuItems')
+const Vendors = require('../../models/Vendors');
+const AdminPercent = require('../../models/AdminPercentages')
+const MenuItems = require('../../models/MenuItemss')
 
 
 //database configuration
-const db = require('../../config/keys').mongoURI;
+const db = require('../../config/keyse').mongoURI;
 //create bland varaiable 
 var database;
 

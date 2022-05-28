@@ -14,11 +14,11 @@ const App = () => {
     
       <Routes>
             <Route path='/' exact element={<Homepage/>} />
-            <Route path="/admin/register" exact element={<AdminRegister/>} />
-            <Route path="/admin/login" exact element={<AdminLogin />} />
-            <Route path="/admin/dashboard" exact element={<AdminDashboard/>} />
-            <Route path="/vendor/login" exact element={<VendorLogin />} />
-            <Route path="/vendor/dashboard" exact element={<VendorDashboard />} />
+            <Route path='/admin/register' exact element={<AdminRegister/>} />
+            <Route path='/admin/login' exact element={<AdminLogin />} />
+            <Route path='/admin/dashboard' exact element={<AdminDashboard/>} />
+            <Route path='/vendor/login' exact element={<VendorLogin />} />
+            <Route path='/vendor/dashboard' exact element={<VendorDashboard />} />
       </Routes>
    
   );
