@@ -6,6 +6,7 @@ import Row from "react-bootstrap/esm/Row"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faSquarePhone} from "@fortawesome/free-solid-svg-icons"
 import  Button from "react-bootstrap/esm/Button";
+import ShowFrontMenu from "./ShowFrontMenu";
 
 
 
@@ -13,32 +14,9 @@ const Homepage = () => {
 
       //use axios to fetch vendor
       useEffect(() => {
-           getAdminCut()
-          displayMenu()
           getCat()
       }, [])
-      //state to hold admin percentage
-    const [adminCut, setAdminCut] = useState(0)
-    //function to get admin percentage
-    const  getAdminCut = async() => {
-        await axios.get('api/vendors/getAdminCut')
-        .then(res => {
-            const results = res.data
-            results.map(result => {
-                setAdminCut(result.percentage)
-            })
-        })
-        .catch(err => {
-           //  alert(err.data)
-        })
-    }
-
-    //get admin percent multiplier
-    const multiplier = adminCut / 100;
-
-      //state to pull menu
-    const [showMenu, setShowMenu] = useState([])
-
+     
      //set state to get categories
      const [cats, setCat] = useState([])
   
@@ -50,16 +28,6 @@ const Homepage = () => {
            ).catch(err => {
                 console.log(err)
            })
-     }
-
-    //get menu items from db
-    const displayMenu = async() => {
-        await axios.get('api/vendors/getMenu/')
-        .then(response => {
-            setShowMenu(response.data)
-        }).catch(err => {
-            // alert(err.data)
-        })
      }
 
       return (
@@ -173,21 +141,45 @@ const Homepage = () => {
                               
                               <Row>
                                    <div className="col col-sm-4 p-2">
-                                        <div className="text-center rounded shadow p-3 text-muted">
+                                        <div className="text-center p-3 text-muted">
+                                             <div className="d-flex justify-content-center">
+                                                  <img
+                                                       className="d-block"
+                                                       src={require('../../images/numberOne.png')}
+                                                       alt="First slide"
+                                                       style={{height : "32px", width : "32px"}}
+                                                  />
+                                             </div>
                                              <p>
                                                   Sign up for a free FoodFind account.
                                              </p>
                                         </div>
                                    </div>
                                    <div className="col col-sm-4 p-2">
-                                        <div className="text-center rounded shadow p-3 text-muted">
+                                        <div className="text-center  p-3 text-muted">
+                                        <div className="d-flex justify-content-center">
+                                                  <img
+                                                       className="d-block"
+                                                       src={require('../../images/numberTwo.png')}
+                                                       alt="First slide"
+                                                       style={{height : "32px", width : "32px"}}
+                                                  />
+                                             </div>
                                              <p>
                                                   Order from resturants close to you and have it delivered.
                                              </p>
                                         </div>
                                    </div>
                                    <div className="col col-sm-4 p-2">
-                                        <div className="text-center rounded shadow p-3 text-muted">
+                                        <div className="text-center p-3 text-muted">
+                                        <div className="d-flex justify-content-center">
+                                                  <img
+                                                       className="d-block"
+                                                       src={require('../../images/numberThree.png')}
+                                                       alt="First slide"
+                                                       style={{height : "32px", width : "32px"}}
+                                                  />
+                                             </div>
                                              <p>
                                                   Enjoy locally made meals at your convinenience 
                                              </p>
@@ -195,31 +187,8 @@ const Homepage = () => {
                                    </div>
                               </Row>
 
-                             {/* <div className="p-2 text-muted">
-                                   <h4 className="display-4">
-                                        Menu
-                                   </h4>
-                             </div> */}
-
-                            
                                    <Row>
-                                   {
-                                        showMenu.map(item => <div key={item._id} className="col col-sm-4 p-2 hover">
-                                        <div className="shadow">
-                                             <div>
-                                             <img src={require('../../../public/uploads/menuImages/resized/'+item.logo)} style={{width : '100%'}} className="mb-1 rounded-top"/>
-                                             </div>
-                                             <div className="p-2">
-                                                  <h6 className="m-0"><b>{item.itemName}</b></h6>
-                                                  <div className="d-flex justify-content-between">
-                                                       <div>
-                                                            <p className="m-0">£{multiplier + parseInt(item.price)}</p>
-                                                       </div>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                        </div>)
-                                   }
+                                        <ShowFrontMenu />
                                    </Row>
                          </div>
                     </div>
